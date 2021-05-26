@@ -1,0 +1,42 @@
+{
+      "id": "coherence",
+      "summary": "Compute the complex coherence with SAR data",
+      "description": "Compute the complex coherence with SAR data, given the specified time delta.",
+      "categories": [
+        "cubes",
+        "math"
+      ],
+      "experimental": true,
+      "parameters": [
+        {
+          "name": "data",
+          "description": "A raster data cube with exactly two horizontal spatial dimensions and an arbitrary number of additional dimensions. The process is applied to all additional dimensions individually.",
+          "schema": {
+            "type": "object",
+            "subtype": "raster-cube"
+          }
+        },
+        {
+          "name": "timedelta",
+          "description": "Temporal delta between acquisitions on which we want to compute coherence.",
+          "schema": {
+            "type": "integer",
+            "enum": [
+              6,
+              12,
+              24,
+              48
+            ]
+          },
+          "default": "6 days",
+          "optional": true
+        }
+      ],
+      "returns": {
+        "description": "A data cube with the projected values in the requested projection.",
+        "schema": {
+          "type": "object",
+          "subtype": "raster-cube"
+        }
+      }
+}
