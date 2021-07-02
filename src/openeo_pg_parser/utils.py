@@ -18,7 +18,7 @@ def url_is_valid(url):
 
     """
     try:
-        r = requests.get(url=url)
+        r = requests.get(url=url,verify=False)
         if r.status_code != 200:
             return False
         return True
